@@ -1,9 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   print_error.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fate <fate@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/13 10:36:00 by fate              #+#    #+#             */
+/*   Updated: 2022/11/13 11:00:06 by fate             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub.h"
 
 void	error_in_line(char *str, int error)
 {
-	printf("err - %d\n", error);
-	ft_log("in line error");
 	ft_putstr_fd(str, 2);
 	if (error == EMPTY_IDENTIFER)
 		ft_putendl_fd(": no path to texture", 2);
@@ -17,23 +27,8 @@ void	error_in_line(char *str, int error)
 		ft_putendl_fd(": unknown error", 2);
 }
 
-/*void	print_error_2(int error)
-{
-	if (error == UNKNOW_SYM)
-		ft_putendl_fd("cub3d: unknown symbols in config", 2);
-	else if (error == UNKNOW_SYM)
-		ft_putendl_fd("cub3d: unknown symbols in config", 2);
-	else if (error == UNKNOW_SYM)
-		ft_putendl_fd("cub3d: unknown symbols in config", 2);
-	else if (error == UNKNOW_SYM)
-		ft_putendl_fd("cub3d: unknown symbols in config", 2);
-	else if (error == UNKNOW_SYM)
-		ft_putendl_fd("cub3d: unknown symbols in config", 2);
-}*/
-
 void	print_error(int error)
 {
-	printf("error - %d\n", error);
 	if (error == TOO_MANY_ARGS)
 		ft_putendl_fd("cub3d: too many arguments passed", 2);
 	else if (error == NO_FILE_PASSED)

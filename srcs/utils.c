@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fate <fate@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/13 10:40:44 by fate              #+#    #+#             */
+/*   Updated: 2022/11/13 10:42:25 by fate             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub.h"
 
 char	**lst_to_arr(t_list *list, int len)
@@ -12,13 +24,11 @@ char	**lst_to_arr(t_list *list, int len)
 		return (NULL);
 	while (++i < len)
 	{
-		//printf("list:\t%s", list->content);
 		arr[i] = ft_strtrim(list->content, "\n");
 		free(list->content);
 		ptr = list;
 		list = list->next;
 		free(ptr);
-		//printf("arr:\t%s", arr[i]);
 	}
 	return (arr);
 }
@@ -40,7 +50,7 @@ int	is_player(char c)
 	return (0);
 }
 
-int is_map_object(char c)
+int	is_map_object(char c)
 {
 	if (c == ' ' || c == '0'
 		|| c == '1')
@@ -53,10 +63,4 @@ int	is_inner_object(char c)
 	if (is_player(c) || c == '0')
 		return (1);
 	return (0);
-}
-
-void	ft_log(char *str)
-{
-	ft_putstr_fd("log: ", 1);
-	ft_putendl_fd(str, 1);
 }

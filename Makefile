@@ -31,6 +31,7 @@ SRCS = srcs/gameloop.c \
 		srcs/utils.c \
 		srcs/validate.c \
 		srcs/clear_cub.c \
+		srcs/copy_map.c \
 		gnl/get_next_line.c \
 		gnl/get_next_line_utils.c
 
@@ -123,6 +124,7 @@ bonus: $(NAME)
 # 		srcs/utils.c \
 # 		srcs/validate.c \
 # 		srcs/clear_cub.c \
+# 		srcs/copy_map.c \
 # 		gnl/get_next_line.c \
 # 		gnl/get_next_line_utils.c
 

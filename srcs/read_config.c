@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   read_config.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fate <fate@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/13 10:40:08 by fate              #+#    #+#             */
+/*   Updated: 2022/11/13 10:40:18 by fate             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub.h"
 
 int	fill_list(int fd, t_list **list)
@@ -27,7 +39,6 @@ int	read_config(char ***config, char *path_to_cfg)
 	t_list	*list;
 	int		len;
 
-	ft_log("start reading file");
 	fd = open(path_to_cfg, O_RDONLY);
 	if (fd < 0)
 		return (CUB_ERR);
@@ -36,13 +47,11 @@ int	read_config(char ***config, char *path_to_cfg)
 	len = fill_list(fd, &list);
 	if (!len)
 		return (EMPTY_FILE);
-	ft_log("list created");
 	*config = lst_to_arr(list, len);
 	if (!*config || close(fd))
 	{
 		ft_lstclear(&list, free);
 		return (CUB_ERR);
 	}
-	ft_log("file arr created");
 	return (CUB_OK);
 }

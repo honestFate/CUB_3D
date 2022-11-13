@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parse_config.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fate <fate@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/13 10:36:36 by fate              #+#    #+#             */
+/*   Updated: 2022/11/13 10:37:21 by fate             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub.h"
 
 int	parse_settings(t_mlx *mlx, t_config *config, int *end_of_config)
@@ -20,9 +32,6 @@ int	parse_settings(t_mlx *mlx, t_config *config, int *end_of_config)
 			return (INVALID_CONFIG_PARAM);
 		}
 	}
-	ft_log("settings readed");
-	printf("floor %d %d %d %d\n", get_t(config->colors[0]), get_r(config->colors[0]), get_g(config->colors[0]), get_b(config->colors[0]));
-	printf("ceilling %d %d %d %d\n", get_t(config->colors[1]), get_r(config->colors[1]), get_g(config->colors[1]), get_b(config->colors[1]));
 	if (check_config_param(config) != CUB_OK)
 		return (INVALID_CONFIG_PARAM);
 	mlx->floor_color = config->colors[0];
@@ -49,27 +58,19 @@ int	parse_config(t_mlx *mlx, char *path_to_cfg)
 	int			err;
 	t_config	config;
 
-	ft_log("start parse config");
 	config.config_txt = NULL;
 	err = read_config(&config.config_txt, path_to_cfg);
 	if (err)
 		return (err);
-	ft_log("parse settings");
 	err = parse_settings(mlx, &config, &end_of_config);
 	if (err)
 	{
 		free_config(&config);
 		return (err);
 	}
-	ft_log("start map parse");
 	err = parse_map(mlx, &config, end_of_config);
-	ft_log("map parsed");
 	free_config(&config);
 	if (err)
-	{
-		ft_log("err in map");
 		return (err);
-	}
-	ft_log("map check ok - finish parsing");
 	return (CUB_OK);
 }

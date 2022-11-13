@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   convert_img.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gtrinida <gtrinida@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fate <fate@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 18:19:03 by gtrinida          #+#    #+#             */
-/*   Updated: 2022/11/10 18:19:44 by gtrinida         ###   ########.fr       */
+/*   Updated: 2022/11/13 10:41:03 by fate             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,9 @@ int	convert_img(t_mlx *cub, t_config *config)
 	int	f_type;
 	int	i;
 
-	ft_log("images convert");
 	i = -1;
 	while (++i <= EA_INDEX)
 	{
-		ft_log("image converting...");
 		if (!check_file_type(config->path_to_texture[i], ".png"))
 			f_type = PNG;
 		else if (!check_file_type(config->path_to_texture[i], ".xpm"))
@@ -56,6 +54,5 @@ int	convert_img(t_mlx *cub, t_config *config)
 		if (err)
 			return (err);
 	}
-	ft_log("images convert end");
 	return (CUB_OK);
 }

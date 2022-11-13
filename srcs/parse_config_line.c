@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parse_config_line.c                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fate <fate@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/13 10:39:29 by fate              #+#    #+#             */
+/*   Updated: 2022/11/13 10:39:30 by fate             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub.h"
 
 int	check_config_param(t_config *cfg)
@@ -21,7 +33,6 @@ int	check_config_param(t_config *cfg)
 
 int	get_identefer_index(char *str)
 {
-	printf("identifier str - %s\n", str);
 	if (!ft_strncmp(str, NORTH_TEXTURE_IDENTIFER, 2))
 		return (NO_INDEX);
 	else if (!ft_strncmp(str, SOUTH_TEXTURE_IDENTIFER, 2))
@@ -42,7 +53,6 @@ int	parse_path(t_config *config, char *str, int index)
 	int	i;
 
 	i = 0;
-	ft_log("parsing path");
 	while (is_space(str[i]))
 		++i;
 	if (!str[i])
@@ -58,7 +68,6 @@ int	parse_color(t_config *config, char *str, int index)
 	int	i;
 
 	i = 0;
-	ft_log("parsing color");
 	while (is_space(str[i]))
 		++i;
 	if (!str[i])
@@ -79,7 +88,6 @@ int	parse_identefer(t_config *config, char *str)
 	if (!str[i])
 		return (CUB_OK);
 	index = get_identefer_index(str + i);
-	printf("str - %s, index - %d\n", str, index);
 	if (index >= NO_INDEX && index <= EA_INDEX)
 		return (parse_path(config, str + i + 2, index));
 	else if (index >= F_INDEX && index <= C_INDEX)

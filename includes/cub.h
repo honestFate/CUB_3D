@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gtrinida <gtrinida@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fate <fate@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 07:44:15 by gtrinida          #+#    #+#             */
-/*   Updated: 2022/11/10 18:16:09 by gtrinida         ###   ########.fr       */
+/*   Updated: 2022/11/13 10:58:00 by fate             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -158,6 +158,9 @@ typedef struct t_mlx
 	t_texture	**textures;
 }t_mlx;
 
+t_mlx		*mlx_start_init(int norm);
+void		set_map_size(t_mlx *mlx);
+int			init_pos(t_mlx *mlx);
 int			fill_list(int fd, t_list **list);
 int			read_config(char ***config, char *path_to_cfg);
 int			parse_config(t_mlx *mlx, char *path_to_cfg);
@@ -173,6 +176,8 @@ int			is_empty_line(char *line);
 int			is_closed(char **map);
 int			map_check_valid_sym(t_config *cfg, int start_map);
 int			parse_map(t_mlx *mlx, t_config *cfg, int end_of_config);
+int			copy_map(t_mlx *cub, t_config *cfg, int map_start);
+void		copy_line(t_mlx *cub, t_config *cfg, int i, int map_start);
 char		**lst_to_arr(t_list *list, int len);
 int			is_space(char c);
 int			is_player(char c);
@@ -199,7 +204,7 @@ int			ft_check(t_mlx *mlx, int side, char *line);
 int			fill_floor_ceil(t_mlx *mlx, char *line, int f_or_c);
 int			get_path(t_mlx *mlx);
 int			close_window(int key, t_mlx *mlx);
-int			close_button(void *cub);
+int			close_button(t_mlx *cub);
 void		start_turn(t_mlx *mlx, t_pos *info, double rotate);
 void		redraw_window(t_mlx *mlx);
 void		put_pixel_img(t_mlx *mlx, int x, int y, int color);
