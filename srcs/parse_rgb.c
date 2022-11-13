@@ -6,7 +6,7 @@
 /*   By: fate <fate@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 10:36:18 by fate              #+#    #+#             */
-/*   Updated: 2022/11/13 10:36:19 by fate             ###   ########.fr       */
+/*   Updated: 2022/11/13 18:38:17 by fate             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ static int	get_next_number(char *str, int *nmb, char del, int i)
 		++i;
 	if (!ft_isdigit(str[i]))
 	{
-		printf("%c", str[i]);
 		return (-1);
 	}
 	*nmb = ft_atoi(str + i);

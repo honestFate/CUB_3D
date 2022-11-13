@@ -1,7 +1,7 @@
 NO./textures/64x64/barrel.xpm
 SO ./textures/64x64/mossy.xpm
 WE ./textures/64x64/mossy.xpm
-EA ./textures/4096x4096/corinth.xpm
+EA ./textures/128x128/tile.xpm
 F 76, 181, 31
 C 166, 224, 255
 

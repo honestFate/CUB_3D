@@ -6,7 +6,7 @@
 /*   By: fate <fate@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 10:36:00 by fate              #+#    #+#             */
-/*   Updated: 2022/11/13 11:00:06 by fate             ###   ########.fr       */
+/*   Updated: 2022/11/13 18:39:53 by fate             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void	error_in_line(char *str, int error)
 
 void	print_error(int error)
 {
+	ft_putendl_fd("Error", STDERR_FILENO);
 	if (error == TOO_MANY_ARGS)
 		ft_putendl_fd("cub3d: too many arguments passed", 2);
 	else if (error == NO_FILE_PASSED)
