@@ -1,9 +1,1 @@
-# 42cub3DTMP
-# cubik
-# 42Cub3D-Needs-Debug
-# cubtmp
-# cubtmp
-# 42Cub3D
-# 42Cub3DNorm
-# cubov_malo_ne_bivaet
-# mmmm
+
